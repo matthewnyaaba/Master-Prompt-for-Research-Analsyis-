@@ -1,0 +1,121 @@
+Chatbot Promt: For Introduction
+MASTER PROMPT FOR RESEARCH PAPER ANALYSIS
+
+CONTEXT: I need you to critically examine a section of my research paper and provide comprehensive feedback on structure, coherence, academic rigor, and effectiveness.
+
+SECTION TYPE: [Specify: Introduction | Literature Review | Methods | Findings/Results | Discussion | Conclusion]
+
+TEXT TO ANALYZE: [Paste your text here]
+
+UNIVERSAL ANALYSIS FRAMEWORK:
+1. **Structural Coherence**
+   - Logical flow between paragraphs
+   - Clear topic sentences and transitions
+   - Appropriate section organization
+   - Balance and proportionality
+
+2. **Academic Rigor**
+   - Evidence quality and support
+   - Citation appropriateness
+   - Claim-evidence alignment
+   - Scholarly tone and precision
+
+3. **Purpose Fulfillment**
+   - Does this section achieve its intended goal?
+   - Are key elements present and clear?
+   - Reader comprehension and engagement
+   - Connection to overall research narrative
+
+4. **Critical Assessment**
+   - What works well?
+   - What needs improvement?
+   - What's missing?
+   - What's redundant?
+
+SECTION-SPECIFIC ANALYSIS:
+
+IF INTRODUCTION:
+□ Compelling hook/opening
+□ Clear problem statement
+□ Research gap emerges naturally
+□ Objectives/questions are specific
+□ Significance is established
+□ Scope is defined
+□ Roadmap provided
+
+IF LITERATURE REVIEW:
+□ Organized thematically/chronologically
+□ Critical synthesis (not just summary)
+□ Identifies patterns and contradictions
+□ Clear theoretical framework
+□ Gaps and debates highlighted
+□ Your position is clear
+□ Recent and seminal sources balanced
+
+IF METHODS:
+□ Research design justified
+□ Procedures replicable
+□ Sample/data described adequately
+□ Instruments/measures explained
+□ Analysis approach clear
+□ Limitations acknowledged
+□ Ethical considerations addressed
+
+IF FINDINGS/RESULTS:
+□ Organized by themes/research questions
+□ Data presented clearly
+□ Tables/figures effective
+□ Objective reporting
+□ No interpretation (save for discussion)
+□ All research questions addressed
+□ Surprising findings highlighted
+
+IF DISCUSSION:
+□ Key findings summarized first
+□ Connected to literature/theory
+□ Implications explored
+□ Limitations honestly addressed
+□ Alternative explanations considered
+□ Practical applications discussed
+□ Future research directions clear
+
+IF CONCLUSION:
+□ Research questions answered
+□ Key contributions reiterated
+□ Broader implications stated
+□ No new information introduced
+□ Memorable closing
+□ Call to action (if appropriate)
+□ Full circle to introduction
+
+SPECIFIC QUESTIONS TO ADDRESS:
+1. Which sentences/paragraphs are doing real work vs. filling space?
+2. Where do assumptions replace evidence?
+3. What would a skeptical reviewer challenge?
+4. How can the impact be strengthened?
+5. What's the "so what?" factor?
+
+OUTPUT REQUESTED:
+1. **Overall Assessment** (2-3 sentences)
+2. **Strengths** (bullet points)
+3. **Critical Issues** (prioritized list)
+4. **Paragraph-by-Paragraph Analysis**
+   - Purpose of paragraph
+   - Effectiveness rating (1-5)
+   - Specific improvements
+5. **Reordering Suggestions** (if needed)
+6. **Missing Elements** 
+7. **Elements to Remove**
+8. **3 Rewritten Examples** (showing improvements)
+9. **Academic Language Corrections**
+10. **Final Checklist** for revision
+
+ANALYSIS STYLE:
+- Be constructively critical
+- Provide specific examples
+- Suggest concrete improvements
+- Maintain encouraging tone
+- Focus on clarity and impact
+
+
+
