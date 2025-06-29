@@ -1,0 +1,186 @@
+MASTER PROMPT FOR RESEARCH PAPER ANALYSIS
+
+CONTEXT: I need you to critically examine a section of my research paper and provide comprehensive feedback on structure, coherence, academic rigor, and effectiveness.
+
+SECTION TYPE: {section_type.value}
+
+TEXT TO ANALYZE:
+{text}
+
+UNIVERSAL ANALYSIS FRAMEWORK:
+1. **Structural Coherence**
+   - Logical flow between paragraphs
+   - Clear topic sentences and transitions
+   - Appropriate section organization
+   - Balance and proportionality
+
+2. **Academic Rigor**
+   - Evidence quality and support
+   - Citation appropriateness
+   - Claim-evidence alignment
+   - Scholarly tone and precision
+
+3. **Purpose Fulfillment**
+   - Does this section achieve its intended goal?
+   - Are key elements present and clear?
+   - Reader comprehension and engagement
+   - Connection to overall research narrative
+
+4. **Critical Assessment**
+   - What works well?
+   - What needs improvement?
+   - What's missing?
+   - What's redundant?
+
+SECTION-SPECIFIC CHECKLIST FOR {section_type.value.upper()}:
+{checklist_formatted}
+
+SPECIFIC QUESTIONS TO ADDRESS:
+1. Which sentences/paragraphs are doing real work vs. filling space?
+2. Where do assumptions replace evidence?
+3. What would a skeptical reviewer challenge?
+4. How can the impact be strengthened?
+5. What's the "so what?" factor?
+
+OUTPUT REQUESTED:
+1. **Overall Assessment** (2-3 sentences)
+2. **Strengths** (bullet points)
+3. **Critical Issues** (prioritized list)
+4. **Paragraph-by-Paragraph Analysis**
+   - Purpose of paragraph
+   - Effectiveness rating (1-5)
+   - Specific improvements
+5. **Reordering Suggestions** (if needed)
+6. **Missing Elements** 
+7. **Elements to Remove**
+8. **3 Rewritten Examples** (showing improvements)
+9. **Academic Language Corrections**
+10. **Final Checklist** for revision
+
+ANALYSIS STYLE:
+- Be constructively critical
+- Provide specific examples
+- Suggest concrete improvements
+- Maintain encouraging tone
+- Focus on clarity and impact
+"""
+        
+        if additional_focus:
+            prompt += f"\n\nADDITIONAL FOCUS:\n{additional_focus}"
+        
+        return prompt
+    
+    def save_prompt_to_file(self, prompt: str, filename: str):
+        """Save generated prompt to a text file"""
+        with open(filename, 'w', encoding='utf-8') as f:
+            f.write(prompt)
+        print(f"Prompt saved to {filename}")
+    
+    def interactive_mode(self):
+        """Run interactive mode for generating prompts"""
+        print("Research Paper Analysis Tool")
+        print("=" * 50)
+        
+        # Choose analysis type
+        print("\nChoose analysis type:")
+        print("1. Introduction-specific analysis")
+        print("2. Master analysis (any section)")
+        
+        choice = input("\nEnter choice (1 or 2): ").strip()
+        
+        if choice == "1":
+            # Introduction analysis
+            print("\nPaste your introduction text (press Enter twice when done):")
+            lines = []
+            while True:
+                line = input()
+                if line == "":
+                    if lines and lines[-1] == "":
+                        break
+                lines.append(line)
+            
+            text = "\n".join(lines[:-1])  # Remove last empty line
+            
+            additional = input("\nAny additional focus areas? (press Enter to skip): ").strip()
+            additional = additional if additional else None
+            
+            prompt = self.generate_introduction_prompt(text, additional)
+            
+        else:
+            # Master analysis
+            print("\nSelect section type:")
+            for i, section in enumerate(SectionType, 1):
+                print(f"{i}. {section.value}")
+            
+            section_choice = int(input("\nEnter section number: ")) - 1
+            section_type = list(SectionType)[section_choice]
+            
+            print(f"\nPaste your {section_type.value} text (press Enter twice when done):")
+            lines = []
+            while True:
+                line = input()
+                if line == "":
+                    if lines and lines[-1] == "":
+                        break
+                lines.append(line)
+            
+            text = "\n".join(lines[:-1])  # Remove last empty line
+            
+            additional = input("\nAny additional focus areas? (press Enter to skip): ").strip()
+            additional = additional if additional else None
+            
+            prompt = self.generate_master_prompt(section_type, text, additional)
+        
+        # Display or save
+        print("\n" + "=" * 50)
+        print("Generated Prompt:")
+        print("=" * 50)
+        print(prompt)
+        
+        save = input("\nSave to file? (y/n): ").strip().lower()
+        if save == 'y':
+            filename = input("Enter filename (without extension): ").strip()
+            self.save_prompt_to_file(prompt, f"{filename}.txt")
+
+
+def main():
+    """Main function to run the analyzer"""
+    analyzer = ResearchPaperAnalyzer()
+    
+    # Example usage - programmatic
+    if len(sys.argv) > 1 and sys.argv[1] == "--example":
+        # Example for introduction
+        intro_text = """
+        Review studies becomes necessary for phenonon that are emerging such as GenAI for several reasons...
+        """
+        
+        intro_prompt = analyzer.generate_introduction_prompt(
+            intro_text,
+            "Focus on how the research gap emerges and the logical flow"
+        )
+        
+        print("INTRODUCTION ANALYSIS PROMPT:")
+        print(intro_prompt)
+        print("\n" + "="*50 + "\n")
+        
+        # Example for methods section
+        methods_text = """
+        This study employed a systematic review methodology...
+        """
+        
+        methods_prompt = analyzer.generate_master_prompt(
+            SectionType.METHODS,
+            methods_text,
+            "Check if procedures are replicable"
+        )
+        
+        print("METHODS ANALYSIS PROMPT:")
+        print(methods_prompt)
+        
+    else:
+        # Run interactive mode
+        analyzer.interactive_mode()
+
+
+if __name__ == "__main__":
+    main()
